@@ -1,0 +1,13 @@
+{
+  "operation": {
+    "initiatedBy": {
+      "username": "admin"
+    },
+    "sync": {
+      "prune": true,
+      "syncStrategy": {
+        "hook": {}
+      }
+    }
+  }
+}
