@@ -15,6 +15,7 @@ spec:
       - kube-system
       - gatekeeper-system
       - argocd
+      - external-secrets
   parameters:
     limits:
       - cpu
