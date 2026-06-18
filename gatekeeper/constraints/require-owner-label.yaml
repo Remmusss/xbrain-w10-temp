@@ -16,3 +16,4 @@ spec:
       - kube-system
       - gatekeeper-system
       - argocd
+      - external-secrets
