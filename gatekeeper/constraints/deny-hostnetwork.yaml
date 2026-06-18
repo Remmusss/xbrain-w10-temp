@@ -1,0 +1,19 @@
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sPSPHostNetworkingPorts
+metadata:
+  name: deny-hostnetwork
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+    gatekeeper.sh/library-source: open-policy-agent/gatekeeper-library/library/pod-security-policy/host-network-ports
+spec:
+  enforcementAction: deny
+  match:
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Pod"]
+    excludedNamespaces:
+      - kube-system
+      - gatekeeper-system
+      - argocd
+  parameters:
+    hostNetwork: false

@@ -1,0 +1,21 @@
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sRequiredResources
+metadata:
+  name: require-container-limits
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+    gatekeeper.sh/library-source: open-policy-agent/gatekeeper-library/library/general/containerresources
+spec:
+  enforcementAction: deny
+  match:
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Pod"]
+    excludedNamespaces:
+      - kube-system
+      - gatekeeper-system
+      - argocd
+  parameters:
+    limits:
+      - cpu
+      - memory
