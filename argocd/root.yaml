@@ -8,7 +8,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/Remmusss/w10-template
+    repoURL: https://github.com/Remmusss/xbrain-w10-temp.git
     path: argocd/apps
     targetRevision: main
   destination:
