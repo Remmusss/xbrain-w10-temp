@@ -5,3 +5,4 @@ resources:
   - k8srequiredresources.yaml
   - k8spspallowedusers.yaml
   - k8spsphostnetwork.yaml
+  - k8srequiredownerlabel.yaml

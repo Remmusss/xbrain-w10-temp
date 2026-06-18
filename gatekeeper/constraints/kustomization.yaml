@@ -5,3 +5,4 @@ resources:
   - require-limits.yaml
   - deny-root.yaml
   - deny-hostnetwork.yaml
+  - require-owner-label.yaml

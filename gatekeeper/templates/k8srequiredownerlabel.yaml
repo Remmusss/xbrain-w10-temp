@@ -1,0 +1,21 @@
+apiVersion: templates.gatekeeper.sh/v1
+kind: ConstraintTemplate
+metadata:
+  name: k8srequiredownerlabel
+spec:
+  crd:
+    spec:
+      names:
+        kind: K8sRequiredOwnerLabel
+      validation:
+        openAPIV3Schema:
+          type: object
+  targets:
+    - target: admission.k8s.gatekeeper.sh
+      rego: |
+        package k8srequiredownerlabel
+
+        violation[{"msg": msg}] {
+          not input.review.object.metadata.labels.owner
+          msg := "workload must have label owner"
+        }
