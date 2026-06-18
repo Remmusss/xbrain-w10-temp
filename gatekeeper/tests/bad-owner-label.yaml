@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bad-owner-label
+  namespace: demo
+  labels:
+    app: bad-owner-label
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bad-owner-label
+  template:
+    metadata:
+      labels:
+        app: bad-owner-label
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+      containers:
+        - name: app
+          image: nginx:1.27.0
+          resources:
+            limits:
+              cpu: 100m
+              memory: 64Mi
