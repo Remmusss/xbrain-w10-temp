@@ -32,7 +32,9 @@ spec:
       kind: MutatingWebhookConfiguration
       jqPathExpressions:
         - .webhooks[]?.clientConfig.caBundle
+        - .metadata.ownerReferences
     - group: admissionregistration.k8s.io
       kind: ValidatingWebhookConfiguration
       jqPathExpressions:
         - .webhooks[]?.clientConfig.caBundle
+        - .metadata.ownerReferences
