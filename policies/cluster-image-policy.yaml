@@ -1,0 +1,15 @@
+apiVersion: policy.sigstore.dev/v1alpha1
+kind: ClusterImagePolicy
+metadata:
+  name: require-signed-w10-api
+spec:
+  images:
+    - glob: ghcr.io/remmusss/w10-api:*
+  authorities:
+    - name: cosign-key
+      key:
+        data: |
+          -----BEGIN PUBLIC KEY-----
+          MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEvbdRUrAi0tMjovq6iRjhbhFjKmzO
+          LNVFctCpb0chERGKfz5oFecj1NCUqfA+chzl8n36lmAjuNiBSlGmotq0sA==
+          -----END PUBLIC KEY-----
