@@ -21,3 +21,18 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - ServerSideApply=true
+  ignoreDifferences:
+    - group: admissionregistration.k8s.io
+      kind: MutatingWebhookConfiguration
+      name: policy.sigstore.dev
+      jqPathExpressions:
+        - .webhooks[].clientConfig.caBundle
+      jsonPointers:
+        - /metadata/ownerReferences
+    - group: admissionregistration.k8s.io
+      kind: ValidatingWebhookConfiguration
+      name: policy.sigstore.dev
+      jqPathExpressions:
+        - .webhooks[].clientConfig.caBundle
+      jsonPointers:
+        - /metadata/ownerReferences
