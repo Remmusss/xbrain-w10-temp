@@ -16,6 +16,7 @@ spec:
       - gatekeeper-system
       - argocd
       - external-secrets
+      - cosign-system
   parameters:
     limits:
       - cpu
